@@ -1,0 +1,10 @@
+.shadow-cljs/
+node_modules/
+.nrepl-port
+
+resources/public/js
+resources/main.js
+target/
+
+# Project files
+saved-template.txt
