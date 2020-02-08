@@ -1,7 +1,7 @@
 (ns app.renderer.core
   (:require [reagent.core :as r]
             [clojure.string :as string]
-            ["electron" :as electron]))
+            ["electron" :refer [remote]]))
 
 (enable-console-print!)
 
@@ -30,7 +30,7 @@
   [template name]
   (string/replace template #"\{\{ name \}\}" name))
 
-(def fs (.require (.-remote electron) "fs"))
+(def fs (.require remote "fs"))
 (def save-path "./saved-template.txt")
 (defn save-template []
   (fs.writeFileSync save-path (:message-template @app-state))
