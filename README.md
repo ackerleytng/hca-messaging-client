@@ -1,6 +1,6 @@
-# Mass WhatsApp
+# HCA messaging client
 
-A GUI tool to send templated WhatsApp messages in bulk, commissioned by HCA Hospice Care.
+A GUI tool to send templated messages through hca-bot, commissioned by HCA Hospice Care.
 
 Built with ClojureScript, Shadow-cljs, Electron and Reagent, based off https://github.com/ahonn/shadow-electron-starter.
 
