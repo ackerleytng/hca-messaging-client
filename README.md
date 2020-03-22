@@ -21,12 +21,18 @@ yarn run dev
 Start GUI app
 
 ```
-electron .
+HCA_CLIENT_TOKEN=$(cat hcaClientToken) electron .
 ```
 
 ## Release
 
 ```
-yarn run build
-electron-packager . --platform=win32 --arch=x64
+echo CLIENT_TOKEN_FOR_BOT > hcaClientToken
+yarn run build && electron-packager . --platform=win32 --arch=x64 --asar --extra-resource=hcaClientToken
+```
+
+Test build on linux
+
+```
+yarn run build && electron-packager . --arch=x64 --asar --extra-resource=hcaClientToken
 ```
