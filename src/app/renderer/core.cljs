@@ -53,7 +53,7 @@
     (into {} (map (fn [r] [(:chat-id r) r]) rs))))
 
 (defn retrieve-recipients []
-  (-> (axios/get (str "http://prod.hcabot.workers.dev/listUsers/" hca-client-token "/"))
+  (-> (axios/get (str "https://prod.hcabot.workers.dev/listUsers/" hca-client-token "/"))
       (.then #(clean-recipients (get (js->clj %) "data")))
       (.then #(swap! app-state assoc :recipients %))))
 
@@ -65,7 +65,7 @@
         message (:message-template @app-state)
         data {:message message :chatIds ids}]
     (-> (axios/post
-         (str "http://prod.hcabot.workers.dev/sendMessage/" hca-client-token "/")
+         (str "https://prod.hcabot.workers.dev/sendMessage/" hca-client-token "/")
          (clj->js data))
         (.then #(swap! app-state assoc :show-confirm-modal false)))))
 
